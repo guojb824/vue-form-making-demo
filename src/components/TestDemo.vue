@@ -7,20 +7,18 @@
       generate-code
       generate-json
       clearable
-      :custom-fields="customFields"
       :advanceFields="advanceFields"
-      :advanceComponents="advanceComponents"
     >
       <template slot="action"> </template>
-      <template v-slot:widgetconfig="{ type, data, customProps }">
+      <!-- <template v-slot:widgetconfig="{ type, data, customProps }">
         {{ data.el }}
         <el-form-item v-if="data.el === 'table'" label="Tip">
           <el-input v-model="customProps.tip"></el-input>
         </el-form-item>
-      </template>
+      </template> -->
     </fm-making-form>
-    <!-- <fm-generate-form :data="jsonData" ref="generateForm"> </fm-generate-form>
-    <el-button type="primary" @click="handleSubmit">Submit</el-button> -->
+    <fm-generate-form :data="jsonData" ref="generateForm"> </fm-generate-form>
+    <el-button type="primary" @click="handleSubmit">Submit</el-button>
   </div>
 </template>
 <script>
@@ -37,135 +35,41 @@ export default {
                 span: 12,
                 list: [
                   {
-                    type: "input",
-                    icon: "icon-input",
+                    type: "table",
+                    icon: "",
                     options: {
-                      width: "100%",
-                      defaultValue: "",
-                      required: false,
-                      dataType: "string",
-                      pattern: "",
+                      defaultValue: [],
+                      width: "",
                       placeholder: "",
                       disabled: false,
-                      remoteFunc: "func_1694276755000_47558",
+                      clearable: false,
+                      remote: true,
+                      remoteOptions: [],
+                      props: {
+                        value: "value",
+                        label: "label",
+                        children: "children",
+                      },
+                      remoteFunc: "func_1694351517000_42120",
                     },
-                    name: "单行文本",
-                    key: "1694276755000_47558",
-                    model: "input_1694276755000_47558",
-                    rules: [{ type: "string", message: "单行文本格式不正确" }],
-                  },
-                ],
-              },
-              {
-                span: 12,
-                list: [
-                  {
-                    type: "number",
-                    icon: "icon-number",
-                    options: {
-                      width: "",
-                      required: false,
-                      defaultValue: 0,
-                      min: 0,
-                      max: 0,
-                      step: 1,
-                      disabled: false,
-                      controlsPosition: "",
-                      remoteFunc: "func_1694276757000_27210",
-                    },
-                    name: "计数器",
-                    key: "1694276757000_27210",
-                    model: "number_1694276757000_27210",
+                    name: "子表单",
+                    key: "1694351517000_42120",
+                    model: "table_1694351517000_42120",
                     rules: [],
                   },
                 ],
               },
+              { span: 12, list: [] },
             ],
             options: {
               gutter: 0,
               justify: "start",
               align: "top",
-              remoteFunc: "func_1694276747000_41631",
+              remoteFunc: "func_1694351502000_9115",
             },
             name: "栅格布局",
-            key: "1694276747000_41631",
-            model: "grid_1694276747000_41631",
-            rules: [],
-          },
-          {
-            type: "grid",
-            icon: "icon-grid-",
-            columns: [
-              {
-                span: 12,
-                list: [
-                  {
-                    type: "radio",
-                    icon: "icon-radio-active",
-                    options: {
-                      inline: false,
-                      defaultValue: "",
-                      showLabel: false,
-                      options: [
-                        { value: "Option 1", label: "Option 1" },
-                        { value: "Option 2", label: "Option 2" },
-                        { value: "Option 3", label: "Option 3" },
-                      ],
-                      required: false,
-                      width: "",
-                      remote: false,
-                      remoteOptions: [],
-                      props: { value: "value", label: "label" },
-                      remoteFunc: "func_1694276759000_14580",
-                      disabled: false,
-                    },
-                    name: "单选框组",
-                    key: "1694276759000_14580",
-                    model: "radio_1694276759000_14580",
-                    rules: [],
-                  },
-                ],
-              },
-              {
-                span: 12,
-                list: [
-                  {
-                    type: "checkbox",
-                    icon: "icon-check-box",
-                    options: {
-                      inline: false,
-                      defaultValue: [],
-                      showLabel: false,
-                      options: [
-                        { value: "Option 1" },
-                        { value: "Option 2" },
-                        { value: "Option 3" },
-                      ],
-                      required: false,
-                      width: "",
-                      remote: false,
-                      remoteOptions: [],
-                      props: { value: "value", label: "label" },
-                      remoteFunc: "func_1694276761000_94030",
-                      disabled: false,
-                    },
-                    name: "多选框组",
-                    key: "1694276761000_94030",
-                    model: "checkbox_1694276761000_94030",
-                    rules: [],
-                  },
-                ],
-              },
-            ],
-            options: {
-              gutter: 0,
-              justify: "start",
-              align: "top",
-              remoteFunc: "func_1694276752000_22910",
-            },
-            name: "栅格布局",
-            key: "1694276752000_22910",
-            model: "grid_1694276752000_22910",
+            key: "1694351502000_9115",
+            model: "grid_1694351502000_9115",
             rules: [],
           },
         ],
