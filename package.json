@@ -9,6 +9,8 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
+    "element-ui": "^2.15.14",
+    "form-making": "^1.2.11",
     "vue": "^2.6.11"
   },
   "devDependencies": {
